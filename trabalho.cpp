@@ -23,10 +23,10 @@ void readCreateList(const string& filename) {
     }
 
     // Imprime a lista de adjacência
-    for (const auto& pair : adjList) {
-        cout << pair.first << ": ";
-        for (const auto& neighbor : pair.second) {
-            cout << neighbor << " ";
+    for (map<string, vector<string>>::const_iterator i = adjList.begin(); i != adjList.end(); ++i) {
+        cout << i->first << ": ";
+        for (vector<string>::const_iterator j = i->second.begin(); j != i->second.end(); ++j) {
+            cout << *j << " ";
         }
         cout << endl;
     }
