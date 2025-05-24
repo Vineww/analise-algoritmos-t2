@@ -21,7 +21,7 @@ void buscaProfundidade(const string &vertice, const map<string, vector<string>> 
     }
 }
 
-int main()
+void executarDFS()
 {
     map<string, vector<string>> listaAdjacencia; // Estrutura para armazenar a lista de adjacência
     ifstream arquivo("Grafos/g2.txt"); // Abre o arquivo g2.txt
@@ -60,6 +60,10 @@ int main()
             cout << ",";
     }
     cout << endl;
+}
 
+int main()
+{
+    executarDFS();
     return 0;
 }

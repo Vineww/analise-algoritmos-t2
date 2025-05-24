@@ -70,9 +70,7 @@ void readCreateList(const string& filename) {
 }
 
 int main() {
-    cout << "Exercicio 1" << endl;
-
-    cout << "Grafo 1:" << endl;
+    cout << "\nGrafo 1:" << endl;
     readCreateList("Grafos/g1.txt");
     cout << endl;
 
@@ -83,8 +81,6 @@ int main() {
     cout << "Grafo 3:" << endl;
     readCreateList("Grafos/g3.txt");
     cout << endl;
-
-    cout << "Exercicio 2" << endl;
 
     return 0;
 }

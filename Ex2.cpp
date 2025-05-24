@@ -66,7 +66,8 @@ void readGraphAndBFS(const string& filename) {
         adj[v].push_back(u); // Grafo não direcionado
     }
 
-    cout << "Arquivo: " << filename << endl;
+    cout << "\nArquivo: " << filename << endl;
+    cout << "\nOrdem de visitação (BFS a partir de 'b'):" << endl;
     if (nameToIdx.count("b") == 0) {
         cout << "Vértice 'b' inexistente." << endl;
         return;
