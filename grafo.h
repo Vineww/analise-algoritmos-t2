@@ -24,4 +24,5 @@ public:
     std::unordered_map<std::string, std::vector<std::pair<std::string, int>>> adj;
     bool ler(const std::string& nomeArquivo);
     void imprimir() const;
+    void dijkstra(const std::string& origem, const std::string& destino) const; 
 };
