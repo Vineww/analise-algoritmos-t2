@@ -6,6 +6,7 @@
 #include <queue>
 #include <map>
 #include <set>
+#include <limits>
 
 bool Grafo::ler(const std::string& nomeArquivo) {
     adj.clear();
