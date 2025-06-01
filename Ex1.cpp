@@ -8,6 +8,7 @@
 #include <sstream>
 #include <map>
 #include <vector>
+#include "grafo.h"
 using namespace std;
 
 //exercicio 1
@@ -74,17 +75,20 @@ void readCreateList(const string& filename) {
 }
 
 int main() {
-    cout << "\nGrafo 1:" << endl;
-    readCreateList("Grafos/g1.txt");
-    cout << endl;
+    std::cout << "\nGrafo 1:" << std::endl;
+    Grafo g1;
+    g1.ler("Grafos/g1.txt");
+    g1.imprimir();
 
-    cout << "Grafo 2:" << endl;
-    readCreateList("Grafos/g2.txt");
-    cout << endl;
+    std::cout << "\nGrafo 2:" << std::endl;
+    Grafo g2;
+    g2.ler("Grafos/g2.txt");
+    g2.imprimir();
 
-    cout << "Grafo 3:" << endl;
-    readCreateList("Grafos/g3.txt");
-    cout << endl;
+    std::cout << "\nGrafo 3:" << std::endl;
+    GrafoPonderado g3;
+    g3.ler("Grafos/g3.txt");
+    g3.imprimir();
 
     return 0;
 }

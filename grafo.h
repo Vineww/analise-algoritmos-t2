@@ -1,24 +1,23 @@
-#ifndef GRAFO_H
-#define GRAFO_H
-
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <vector>
-#include <map>
 #include <string>
-#include <limits>
+#include <vector>
+#include <unordered_map>
 
-// Tipos para grafos
-typedef std::map<std::string, std::vector<std::string>> Grafo;
-typedef std::map<std::string, std::vector<std::pair<std::string, int>>> GrafoPonderado;
+class Grafo {
+public:
+    std::unordered_map<std::string, std::vector<std::string>> adj;
+    bool ler(const std::string& nomeArquivo);
+    void imprimir() const;
+    std::vector<std::string> bfs(const std::string& start) const;
+    std::vector<std::string> dfs(const std::string &start) const;
+};
 
-// Funções para grafos sem peso
-Grafo lerGrafoSemPeso(const std::string& nomeArquivo);
-void imprimirGrafo(const Grafo& grafo);
-
-// Funções para grafos com peso
-GrafoPonderado lerGrafoComPeso(const std::string& nomeArquivo);
-void imprimirGrafoPonderado(const GrafoPonderado& grafo);
-
-#endif
+class GrafoPonderado {
+public:
+    std::unordered_map<std::string, std::vector<std::pair<std::string, int>>> adj;
+    bool ler(const std::string& nomeArquivo);
+    void imprimir() const;
+};

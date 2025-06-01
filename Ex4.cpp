@@ -1,6 +1,7 @@
 #include "grafo.h"
 #include <set>
 #include <map>
+#include <limits> // Adicione este include
 
 void dijkstra(const GrafoPonderado& grafo, const std::string& origem, const std::string& destino) {
     std::map<std::string, int> distancia;
@@ -9,13 +10,14 @@ void dijkstra(const GrafoPonderado& grafo, const std::string& origem, const std:
 
     const int infinito = std::numeric_limits<int>::max();
 
-    for (const auto& par : grafo) {
+    // Itere sobre grafo.adj
+    for (const auto& par : grafo.adj) {
         distancia[par.first] = infinito;
     }
 
     distancia[origem] = 0;
 
-    while (visitados.size() < grafo.size()) {
+    while (visitados.size() < grafo.adj.size()) {
         std::string menorVertice;
         int menorDistancia = infinito;
 
@@ -32,7 +34,8 @@ void dijkstra(const GrafoPonderado& grafo, const std::string& origem, const std:
 
         visitados.insert(menorVertice);
 
-        for (const auto& vizinho : grafo.at(menorVertice)) {
+        // Use grafo.adj.at
+        for (const auto& vizinho : grafo.adj.at(menorVertice)) {
             int novaDistancia = distancia[menorVertice] + vizinho.second;
             if (novaDistancia < distancia[vizinho.first]) {
                 distancia[vizinho.first] = novaDistancia;
@@ -65,10 +68,11 @@ void dijkstra(const GrafoPonderado& grafo, const std::string& origem, const std:
 }
 
 int main() {
-    GrafoPonderado grafo = lerGrafoComPeso("Grafos/g3.txt");
+    GrafoPonderado grafo;
+    grafo.ler("Grafos/g3.txt");
 
     std::cout << "Grafo lido:\n";
-    imprimirGrafoPonderado(grafo);
+    grafo.imprimir();
 
     dijkstra(grafo, "x", "t");
 

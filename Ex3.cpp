@@ -9,6 +9,7 @@
 #include <vector>
 #include <unordered_set>
 #include <algorithm>
+#include "grafo.h"
 using namespace std;
 
 // Função recursiva para realizar a busca em profundidade (DFS)
@@ -102,6 +103,14 @@ void executarDFS()
 // Função principal do programa
 int main()
 {
-    executarDFS();
+    Grafo g;
+    g.ler("Grafos/g2.txt");
+    std::vector<std::string> ordem = g.dfs("a");
+    std::cout << "\nOrdem de visitação (DFS a partir de 'a'):" << std::endl;
+    for (size_t i = 0; i < ordem.size(); ++i) {
+        std::cout << ordem[i];
+        if (i != ordem.size() - 1) std::cout << ",";
+    }
+    std::cout << std::endl;
     return 0;
 }

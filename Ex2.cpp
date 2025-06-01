@@ -9,6 +9,7 @@
 #include <sstream>
 #include <map>
 #include <set>
+#include "grafo.h"
 using namespace std;
 
 vector<string> bfs(const vector<vector<int>>& adj, int start, const vector<string>& idxToName) {
@@ -85,7 +86,11 @@ void readGraphAndBFS(const string& filename) {
 }
 
 int main() {
-    readGraphAndBFS("Grafos/g1.txt");
-
+    Grafo g;
+    g.ler("Grafos/g1.txt");
+    std::vector<std::string> ordem = g.bfs("b");
+    std::cout << "\nOrdem de visitação (BFS a partir de 'b'):" << std::endl;
+    for (const auto& v : ordem) std::cout << v << " ";
+    std::cout << std::endl;
     return 0;
 }
