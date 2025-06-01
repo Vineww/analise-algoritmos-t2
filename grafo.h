@@ -1,3 +1,7 @@
+// Caio Alvarenga Geraidine - 2173953
+// Carolina de Souza Freitas - 2118784
+// Vinicius vicari - 2124925
+
 #pragma once
 #include <iostream>
 #include <fstream>

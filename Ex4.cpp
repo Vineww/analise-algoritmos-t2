@@ -1,7 +1,11 @@
+// Caio Alvarenga Geraidine - 2173953
+// Carolina de Souza Freitas - 2118784
+// Vinicius vicari - 2124925
+
 #include "grafo.h"
 #include <set>
 #include <map>
-#include <limits> // Adicione este include
+#include <limits> 
 
 void dijkstra(const GrafoPonderado& grafo, const std::string& origem, const std::string& destino) {
     std::map<std::string, int> distancia;
@@ -10,7 +14,6 @@ void dijkstra(const GrafoPonderado& grafo, const std::string& origem, const std:
 
     const int infinito = std::numeric_limits<int>::max();
 
-    // Itere sobre grafo.adj
     for (const auto& par : grafo.adj) {
         distancia[par.first] = infinito;
     }
@@ -29,12 +32,11 @@ void dijkstra(const GrafoPonderado& grafo, const std::string& origem, const std:
         }
 
         if (menorVertice.empty()) {
-            break; // Não há mais vértices alcançáveis
+            break; 
         }
 
         visitados.insert(menorVertice);
 
-        // Use grafo.adj.at
         for (const auto& vizinho : grafo.adj.at(menorVertice)) {
             int novaDistancia = distancia[menorVertice] + vizinho.second;
             if (novaDistancia < distancia[vizinho.first]) {
@@ -44,7 +46,6 @@ void dijkstra(const GrafoPonderado& grafo, const std::string& origem, const std:
         }
     }
 
-    // Impressão do caminho
     if (distancia[destino] == infinito) {
         std::cout << "Não existe caminho de " << origem << " até " << destino << std::endl;
     } else {
